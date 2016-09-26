@@ -92,7 +92,7 @@ object REST extends Controller {
       val userId = 1
 
       if (Users.findById(userId).isDefined) {
-        val data: List[OverviewItem] = Baselines.listAll.map( baseline => 
+        val data: List[OverviewItem] = Baselines.listAll.map( baseline =>
           OverviewItem(
             baseline.id,
             baseline.name,
