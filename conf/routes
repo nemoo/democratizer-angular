@@ -1,0 +1,18 @@
+
+
+GET         /                                   controllers.Application.ui
+
+POST        /savebaseline                       controllers.REST.postBaseline
+POST        /savebasevalues                     controllers.REST.postBaseValues
+
+GET         /user/:profile                      controllers.REST.getUser(profile: String)
+POST        /saveuser                           controllers.REST.postUser
+POST        /anonymizeuser/:user                controllers.REST.anonymizeUser(user: Long)
+
+GET         /overview                           controllers.REST.getOverview
+GET         /voteview/:baseline                 controllers.REST.getVoteview(baseline: Long)
+POST        /submit                             controllers.REST.vote
+
+
+# Map static resources from the /public folder to the /assets URL path; using asset fingerprinting
+GET         /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
