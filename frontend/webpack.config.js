@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./app/assets/js/index.jsx",
+    entry: "./app/index.jsx",
 
     output: {
-        path: "./public/js",
+        path: "../server/public/js",
         filename: "Bundle.js"
     },
 
