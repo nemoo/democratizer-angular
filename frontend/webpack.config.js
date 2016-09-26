@@ -1,22 +1,19 @@
-module.exports = {
-    entry: "./app/index.jsx",
+/**
+ * @author: @AngularClass
+ */
 
-    output: {
-        path: "../server/public/js",
-        filename: "Bundle.js"
-    },
-
-    module: {
-        loaders: [
-            {
-                test: /\.jsx$/,
-                loader: 'babel',
-                exclude: /node_modules/,
-                query:
-                {
-                   presets:['es2015', 'react']
-                }
-            }
-        ]
-    }
-};
+// Look in ./config folder for webpack.dev.js
+switch (process.env.NODE_ENV) {
+  case 'prod':
+  case 'production':
+    module.exports = require('./config/webpack.prod')({env: 'production'});
+    break;
+  case 'test':
+  case 'testing':
+    module.exports = require('./config/webpack.test')({env: 'test'});
+    break;
+  case 'dev':
+  case 'development':
+  default:
+    module.exports = require('./config/webpack.dev')({env: 'development'});
+}
