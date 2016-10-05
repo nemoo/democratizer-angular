@@ -98,8 +98,8 @@ object REST extends Controller {
             baseline.name,
             baseline.description,
             Votes.findByBaselineAndUser(baseline.id, userId).isDefined))
-
-        Ok(Json.toJson(data))
+        val items = Json.toJson(data)
+        Ok(Json.obj("data" -> items))
 
       } else {
         BadRequest(Json.obj("status" -> "KO", "message" -> "User does not exist!"))

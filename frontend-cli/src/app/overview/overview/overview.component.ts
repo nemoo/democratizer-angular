@@ -17,7 +17,6 @@ export class OverviewComponent implements OnInit {
     this.getBaselines();
   }
 
-  //baselines = [{name: "a"},{name: "b"}];
   baselines: Baseline[];
 
   getBaselines() {

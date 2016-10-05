@@ -11,11 +11,11 @@ const Overview = React.createClass({
     },
     componentDidMount() {
         $.ajax({
-            url: "/overview",
+            url: "/api/overview",
             dataType: 'json',
             cache: false,
             success: function(data) {
-                this.setState({baselines: data});
+                this.setState({baselines: data.data});
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());

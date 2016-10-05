@@ -16,7 +16,7 @@ const Voteview = React.createClass({
     componentDidMount() {
         $.ajax({
             type: "GET",
-            url: "voteview/" + this.props.params.baselineId,
+            url: "api/voteview/" + this.props.params.baselineId,
             dataType: 'json',
             cache: false,
             success: function(data) {
@@ -39,7 +39,7 @@ const Voteview = React.createClass({
     saveVote() {
       $.ajax({
           type: "POST",
-          url: "submit",
+          url: "api/submit",
           data: JSON.stringify(this.state),
           dataType: 'json',
           contentType: "text/json; charset=utf-8",
