@@ -27162,11 +27162,11 @@
 	    componentDidMount: function componentDidMount() {
 	        _jquery2.default.ajax({
 	            type: "GET",
-	            url: "voteview/" + this.props.params.baselineId,
+	            url: "api/voteview/" + this.props.params.baselineId,
 	            dataType: 'json',
 	            cache: false,
 	            success: function (data) {
-	                this.setState(data);
+	                this.setState(data.data);
 	            }.bind(this),
 	            error: function (xhr, status, err) {
 	                console.error(this.props.url, status, err.toString());
@@ -27185,7 +27185,7 @@
 	    saveVote: function saveVote() {
 	        _jquery2.default.ajax({
 	            type: "POST",
-	            url: "submit",
+	            url: "api/submit",
 	            data: JSON.stringify(this.state),
 	            dataType: 'json',
 	            contentType: "text/json; charset=utf-8",
@@ -74038,11 +74038,11 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        _jquery2.default.ajax({
-	            url: "/overview",
+	            url: "/api/overview",
 	            dataType: 'json',
 	            cache: false,
 	            success: function (data) {
-	                this.setState({ baselines: data });
+	                this.setState({ baselines: data.data });
 	            }.bind(this),
 	            error: function (xhr, status, err) {
 	                console.error(this.props.url, status, err.toString());

@@ -1,0 +1,15 @@
+
+
+<h1>
+{{ (baselineBar)?.name }}
+</h1>
+Verfügbares Budget: {{originalRevenue}} Mio. Euro
+<ul>
+  <li *ngFor="let bar of bars">
+    {{bar.category}} - {{bar.basevalue}} Mio. Euro
+    <br>
+    <button>PLUS 5 MILLIARDEN</button>
+    <button>MINUS 5 MILLIARDEN</button>
+    <br>
+  </li>
+</ul>

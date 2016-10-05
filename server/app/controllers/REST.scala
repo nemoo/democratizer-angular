@@ -142,8 +142,8 @@ object REST extends Controller {
             base.get.revenue,
             bars
           )
-
-        Ok(Json.toJson(data))
+        
+        Ok(Json.obj("data" -> Json.toJson(data)))
 
       } else {
         BadRequest(Json.obj("status" -> "KO", "message" -> "Bad Request: Check your User and Baseline!"))

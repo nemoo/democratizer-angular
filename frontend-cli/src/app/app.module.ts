@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
+import { MainComponent } from './vote/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OverviewComponent
+    OverviewComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

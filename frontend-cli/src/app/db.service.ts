@@ -3,10 +3,13 @@ import { Observable }     from 'rxjs/Observable';
 import './rxjs-operators';
 import { Http, Response } from '@angular/http';
 import {Baseline} from './baseline';
+import {BaselineBar} from './baselineBar';
+import {Bar} from './baselineBar';
 
 @Injectable()
 export class DbService {
   private overviewUrl = 'api/overview';
+  private voteviewUrl = 'api/voteview';
 
   constructor (private http: Http) {}
 
@@ -16,8 +19,15 @@ export class DbService {
                     .catch(this.handleError);
   }
 
+  getVoteview(baselineId: number): Observable<BaselineBar> {
+    return this.http.get(this.voteviewUrl + '/' + baselineId)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let data = res.json().data;
+    console.log(data);
     return data || { };
   }
 
