@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DbService} from '../../db.service';
 import {BaselineBar, Bar} from '../../baselineBar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'voteview',
@@ -11,18 +12,20 @@ import {BaselineBar, Bar} from '../../baselineBar';
 export class MainComponent implements OnInit {
   errorMessage: string;
 
-  constructor(private dbService: DbService) { }
+  constructor(private dbService: DbService, private route: ActivatedRoute) { }
 
   baselineBar: BaselineBar;
   bars: Bar[];
   originalRevenue: number;
 
   ngOnInit() {
-    this.getBaselineBars();
+    this.route.params
+      .map(params => params['id'])
+      .subscribe((id) =>   this.getBaselineBars(id) );
   }
 
-  getBaselineBars() {
-    this.dbService.getVoteview(1).
+  getBaselineBars(id: number) {
+    this.dbService.getVoteview(id).
                   subscribe(
                     baselineBar => {
                       this.baselineBar = baselineBar;

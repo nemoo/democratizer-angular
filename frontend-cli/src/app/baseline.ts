@@ -1,5 +1,5 @@
 export class Baseline {
-  id: number;
+  baselineId: number;
   name: string;
   description: string;
   submitted: boolean;

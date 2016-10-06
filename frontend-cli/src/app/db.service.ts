@@ -27,7 +27,6 @@ export class DbService {
 
   private extractData(res: Response) {
     let data = res.json().data;
-    console.log(data);
     return data || { };
   }
 

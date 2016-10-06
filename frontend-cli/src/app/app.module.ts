@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
+import { routing }  from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { MainComponent } from './vote/main/main.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

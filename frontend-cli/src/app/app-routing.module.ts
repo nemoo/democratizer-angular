@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { OverviewComponent } from './overview/overview/overview.component';
+import { MainComponent } from './vote/main/main.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {   path: 'home',            component: OverviewComponent  },
+  {   path: 'voteview/:id',    component: MainComponent  },
+  {   path: '',                component: OverviewComponent }
+];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: []
-})
-export class FrontendCliRoutingModule { }
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+
+export const appRoutingProviders: any[] = [
+];

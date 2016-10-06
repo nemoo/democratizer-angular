@@ -1,8 +1,6 @@
 <ul>
   <li *ngFor="let baseline of baselines">
     {{baseline.name}}
-    <button>
-      Democratize!
-    </button>
+    <a [routerLink]="['/voteview', baseline.baselineId]">Democratize!</a>
   </li>
 </ul>
