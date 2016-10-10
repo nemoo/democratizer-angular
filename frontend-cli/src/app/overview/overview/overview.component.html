@@ -1,6 +1,9 @@
-<ul>
-  <li *ngFor="let baseline of baselines">
-    {{baseline.name}}
-    <a [routerLink]="['/voteview', baseline.baselineId]">Democratize!</a>
-  </li>
-</ul>
+<md-card *ngFor="let baseline of baselines">
+      <md-card-title>{{baseline.name}}</md-card-title>
+
+      <md-card-actions>
+        <button md-button color="primary" (click)="selectBaseline(baseline)">
+          DEMOCRATIZE NOW!
+        </button>
+      </md-card-actions>
+</md-card>

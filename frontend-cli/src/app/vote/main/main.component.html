@@ -1,15 +1,25 @@
 
 
-<h1>
-{{ (baselineBar)?.name }}
-</h1>
-Verfügbares Budget: {{originalRevenue}} Mio. Euro
-<ul>
-  <li *ngFor="let bar of bars">
-    {{bar.category}} - {{bar.basevalue}} Mio. Euro
-    <br>
-    <button>PLUS 5 MILLIARDEN</button>
-    <button>MINUS 5 MILLIARDEN</button>
-    <br>
-  </li>
-</ul>
+<md-card>
+  <md-card-title>{{ (baselineBar)?.name }}</md-card-title>
+  <p>
+  Verfügbares Budget: {{originalRevenue}} Mio. Euro
+  </p>
+  <p>
+  Ihr Vorschlag zu den Staatsausgaben: 150922 Mio. Euro
+  </p>
+  <button md-raised-button color="primary">
+    VARIANTE SPEICHERN
+  </button>
+</md-card>
+
+<md-card>
+    <p *ngFor="let bar of bars">
+      {{bar.category}} - {{bar.basevalue}} Mio. Euro
+      <md-progress-bar mode="determinate" value="50"></md-progress-bar>
+      <br>
+      <button md-button>PLUS 5 MILLIARDEN</button>
+      <button md-button>MINUS 5 MILLIARDEN</button>
+      <br>
+    </p>
+</md-card>
