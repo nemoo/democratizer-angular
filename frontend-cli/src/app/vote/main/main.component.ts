@@ -39,26 +39,27 @@ export class MainComponent implements OnInit {
                   );
   }
 
-  percentage(amount: number): number {
-    return amount / 1000;
+  myProposal(bar: Bar) { return bar.basevalue + bar.delta }
+  
+  myProposalPercentage(bar: Bar): number {
+    return this.myProposal(bar) / 1000;
   }
 
-  increaseBar( bar: Bar) {
-      console.log("i increase" + bar.category + " by " + 5000);
-//      const otherBars = this.bars.filter(b => b.basevalueId != bar.basevalueId);
-//      const updatedBar = Object.assign({}, bar, {delta: bar.delta + 5000});
-//      this.bars = [...otherBars, updatedBar];    
+  increaseBar(bar: Bar){     this.changeAmount( bar, 5000)  }
+  decreaseBar(bar: Bar){     this.changeAmount( bar,-5000)  }
 
+  changeAmount( bar: Bar, amount: number) {
       this.bars = this.bars.map( b => {
         if (b === bar) {
-          return Object.assign({},b,{delta: bar.delta + 5000})
+          return Object.assign({},b,{delta: bar.delta + amount})
         }
         return b;
       });   
   }
 
   save(){
-    this.dbService.saveBaseline(this.baselineBar)    
+    const data = Object.assign({},this.baselineBar, {bars: this.bars});
+    this.dbService.saveBaseline(data)    
                   .subscribe(
                     baselineBar => console.log("saved"),
                     error => this.errorMessage = <any>error

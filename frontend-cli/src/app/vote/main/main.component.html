@@ -17,8 +17,8 @@
     <div *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
       <md-progress-bar mode="determinate" value="{{10}}"></md-progress-bar>
-      <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
-      <md-progress-bar mode="determinate" value="{{percentage(bar.delta)}}"></md-progress-bar>       
+      <p>Mein Vorschlag: {{myProposal(bar)}} Mio. Euro</p>
+      <md-progress-bar mode="determinate" value="{{myProposalPercentage(bar)}}"></md-progress-bar>       
       <br>
       <button md-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
       <button md-button (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
