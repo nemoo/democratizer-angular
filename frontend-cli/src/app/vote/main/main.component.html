@@ -8,18 +8,27 @@
   <p>
   Ihr Vorschlag zu den Staatsausgaben: 150922 Mio. Euro
   </p>
-  <button md-raised-button color="primary">
+  <button md-raised-button color="primary" (click)="save()">
     VARIANTE SPEICHERN
   </button>
 </md-card>
 
 <md-card>
-    <p *ngFor="let bar of bars">
+    <div *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
-      <md-progress-bar mode="determinate" value="50"></md-progress-bar>
+      <md-progress-bar mode="determinate" value="{{10}}"></md-progress-bar>
+      <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
+      <md-progress-bar mode="determinate" value="{{percentage(bar.delta)}}"></md-progress-bar>       
       <br>
-      <button md-button>PLUS 5 MILLIARDEN</button>
-      <button md-button>MINUS 5 MILLIARDEN</button>
+      <button md-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
+      <button md-button (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
       <br>
-    </p>
+    </div>
 </md-card>
+
+Democratizer Democratizer Democratizer Democratizer Democratizer Democratizer Democratizer  
+<md-card>
+    <vote-bar *ngFor="let bar of bars" [bar]="bar">      
+    </vote-bar>
+</md-card>
+

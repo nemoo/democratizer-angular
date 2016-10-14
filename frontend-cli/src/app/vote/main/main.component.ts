@@ -25,8 +25,8 @@ export class MainComponent implements OnInit {
   }
 
   getBaselineBars(id: number) {
-    this.dbService.getVoteview(id).
-                  subscribe(
+    this.dbService.getVoteview(id)
+                  .subscribe(
                     baselineBar => {
                       this.baselineBar = baselineBar;
                       this.bars = baselineBar.bars;
@@ -38,5 +38,32 @@ export class MainComponent implements OnInit {
                     error => this.errorMessage = <any>error
                   );
   }
+
+  percentage(amount: number): number {
+    return amount / 1000;
+  }
+
+  increaseBar( bar: Bar) {
+      console.log("i increase" + bar.category + " by " + 5000);
+//      const otherBars = this.bars.filter(b => b.basevalueId != bar.basevalueId);
+//      const updatedBar = Object.assign({}, bar, {delta: bar.delta + 5000});
+//      this.bars = [...otherBars, updatedBar];    
+
+      this.bars = this.bars.map( b => {
+        if (b === bar) {
+          return Object.assign({},b,{delta: bar.delta + 5000})
+        }
+        return b;
+      });   
+  }
+
+  save(){
+    this.dbService.saveBaseline(this.baselineBar)    
+                  .subscribe(
+                    baselineBar => console.log("saved"),
+                    error => this.errorMessage = <any>error
+                  );    
+  }
+
 
 }

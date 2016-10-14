@@ -10,6 +10,7 @@ import {Bar} from './baselineBar';
 export class DbService {
   private overviewUrl = 'api/overview';
   private voteviewUrl = 'api/voteview';
+  private submitUrl = 'api/submit';
 
   constructor (private http: Http) {}
 
@@ -24,6 +25,12 @@ export class DbService {
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+  saveBaseline(baseline: BaselineBar) {
+    return this.http.post(this.submitUrl, baseline)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }  
 
   private extractData(res: Response) {
     let data = res.json().data;
