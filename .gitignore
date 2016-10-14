@@ -16,4 +16,3 @@ server/.project
 server/RUNNING_PID
 server/.settings
 server/.target
-frontend_react/node_modules
