@@ -8,15 +8,13 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
-import { BarComponent } from './vote/bar/bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
-    MainComponent,
-    BarComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
