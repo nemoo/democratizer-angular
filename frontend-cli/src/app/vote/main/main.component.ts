@@ -21,15 +21,17 @@ export class MainComponent implements OnInit {
     private _store: Store<any>
   ) { 
     _store.distinctUntilChanged()
-      .subscribe(bar => {
-          this.bar = bar;
+      .subscribe(bars => {
+          this.bars = bars;
+          this.modifiedRevenue = bars.map(b => b.delta)
+            .reduce((a,b) => a + b, 0);
       });
   }
 
   baselineBar: BaselineBar;
-  bars: Bar[];
+  bars: Observable<Bar[]>;
   originalRevenue: number;
-  bar: Observable<Bar>;
+  modifiedRevenue: number;
 
   ngOnInit() {
     this.route.params
@@ -42,7 +44,7 @@ export class MainComponent implements OnInit {
                   .subscribe(
                     baselineBar => {
                       this.baselineBar = baselineBar;
-                      this.bars = baselineBar.bars;
+                      this._store.dispatch({type: "INIT", payload: baselineBar.bars})
                       this.originalRevenue =
                         baselineBar.bars.reduce((a,b) => {
                                                 return a + (b.basevalue);
@@ -51,30 +53,18 @@ export class MainComponent implements OnInit {
                     error => this.errorMessage = <any>error
                   );
   }
-
-  myProposal(bar: Bar) { return bar.basevalue + bar.delta }
   
   myProposalPercentage(bar: Bar): number {
-    return this.myProposal(bar) / 1000;
+    return bar.delta  / 1000;
   }
 
   increaseBar(bar: Bar){     
-    this.changeAmount( bar, 5000)  
-    this._store.dispatch({type: "INCREASE_BAR"})
+    this._store.dispatch({type: "INCREASE_BAR", payload: bar.basevalueId});
   }
 
   decreaseBar(bar: Bar){     
-    this.changeAmount( bar,-5000)
-    this._store.dispatch({type: "DECREASE_BAR"})  
-  }
 
-  changeAmount( bar: Bar, amount: number) {
-      this.bars = this.bars.map( b => {
-        if (b === bar) {
-          return Object.assign({},b,{delta: bar.delta + amount})
-        }
-        return b;
-      });   
+    this._store.dispatch({type: "DECREASE_BAR", payload: bar.basevalueId});
   }
 
   save(){

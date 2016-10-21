@@ -6,20 +6,19 @@
   Verfügbares Budget: {{originalRevenue}} Mio. Euro
   </p>
   <p>
-  Ihr Vorschlag zu den Staatsausgaben: 150922 Mio. Euro
+  Ihr Vorschlag zu den Staatsausgaben: {{modifiedRevenue}} Mio. Euro
   </p>
   <button md-raised-button color="primary" (click)="save()">
     VARIANTE SPEICHERN
   </button>
-  Your count: {{bar.delta}}
 </md-card>
 
 
 <md-card>
     <div *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
-      <md-progress-bar mode="determinate" value="{{10}}"></md-progress-bar>
-      <p>Mein Vorschlag: {{myProposal(bar)}} Mio. Euro</p>
+      <md-progress-bar mode="determinate" value="{{bar.basevalue / 1000}}"></md-progress-bar>
+      <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
       <md-progress-bar mode="determinate" value="{{myProposalPercentage(bar)}}"></md-progress-bar>       
       <br>
       <button md-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
