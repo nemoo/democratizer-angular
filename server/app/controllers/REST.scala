@@ -131,7 +131,7 @@ object REST extends Controller {
             basevalue.id,
             basevalue.value,
             VoteValues.getAverage(basevalue.id),
-            delta,
+            delta = delta,
             false)
         }
 
