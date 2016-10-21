@@ -12,6 +12,7 @@ import { routing }  from './app-routing.module';
 import { bars } from './voteReducer';
 
 import { StoreModule } from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -26,7 +27,11 @@ import { StoreModule } from '@ngrx/store';
     HttpModule,
     routing,
     MaterialModule.forRoot(),
-    StoreModule.provideStore(bars)
+    StoreModule.provideStore(bars),
+    StoreDevtoolsModule.instrumentStore({
+      maxAge: 50,
+      monitor: bars
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
