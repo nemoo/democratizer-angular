@@ -119,11 +119,11 @@ object REST extends Controller {
 
         val bars = BaseValues.findByBaseline(baseline).map{ basevalue =>
 
-          val delta = vote match {
+          val delta: Long = vote match {
             case Some(vote) =>
               val potentialVoteValue = VoteValues.findByBaseValueAndVote(basevalue.id, vote.id)
-              potentialVoteValue.map(_.delta)
-            case None          => None
+              potentialVoteValue.map(_.delta).getOrElse(0)
+            case None          => 0
           }
 
           Bar(basevalue.category,
@@ -174,7 +174,7 @@ object REST extends Controller {
                   0,
                   bar.basevalueId,
                   voteId,
-                  bar.delta.getOrElse(0)))
+                  bar.delta))
             }
             Ok(Json.obj("status" -> "OK", "message" -> "Vote saved."))
 
@@ -185,16 +185,14 @@ object REST extends Controller {
             submission.bars.foreach{s =>
               votevalues.find(_.basevalue == s.basevalueId)
                 .map{ votevalue =>
-                  val newDelta = s.delta.getOrElse(0L)
-                  VoteValues.update(votevalue.id, newDelta)}
+                  VoteValues.update(votevalue.id, s.delta)}
                 .getOrElse{
-                  val newDelta = s.delta.getOrElse(0L)
                   VoteValues.insert(
                     VoteValue(
                       0,
                       s.basevalueId,
                       vote.get.id,
-                      newDelta))}
+                      s.delta))}
             }
             Ok(Json.obj("status" -> "OK", "message" -> "Vote saved."))
           }
