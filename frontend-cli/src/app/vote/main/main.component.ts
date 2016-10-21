@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {DbService} from '../../db.service';
 import {BaselineBar, Bar} from '../../baselineBar';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'voteview',
@@ -12,11 +15,21 @@ import { ActivatedRoute } from '@angular/router';
 export class MainComponent implements OnInit {
   errorMessage: string;
 
-  constructor(private dbService: DbService, private route: ActivatedRoute) { }
+  constructor(
+    private dbService: DbService, 
+    private route: ActivatedRoute,
+    private _store: Store<any>
+  ) { 
+    _store.distinctUntilChanged()
+      .subscribe(bar => {
+          this.bar = bar;
+      });
+  }
 
   baselineBar: BaselineBar;
   bars: Bar[];
   originalRevenue: number;
+  bar: Observable<Bar>;
 
   ngOnInit() {
     this.route.params
@@ -45,8 +58,15 @@ export class MainComponent implements OnInit {
     return this.myProposal(bar) / 1000;
   }
 
-  increaseBar(bar: Bar){     this.changeAmount( bar, 5000)  }
-  decreaseBar(bar: Bar){     this.changeAmount( bar,-5000)  }
+  increaseBar(bar: Bar){     
+    this.changeAmount( bar, 5000)  
+    this._store.dispatch({type: "INCREASE_BAR"})
+  }
+
+  decreaseBar(bar: Bar){     
+    this.changeAmount( bar,-5000)
+    this._store.dispatch({type: "DECREASE_BAR"})  
+  }
 
   changeAmount( bar: Bar, amount: number) {
       this.bars = this.bars.map( b => {

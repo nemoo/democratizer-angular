@@ -87,6 +87,18 @@
   dependencies:
     tsickle "^0.1.7"
 
+"@ngrx/core":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/core/-/core-1.2.0.tgz#882b46abafa2e0e6d887cb71a1b2c2fa3e6d0dc6"
+
+"@ngrx/store-devtools@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-3.1.0.tgz#daec0e9f92b95f4ae0550a66474bc59fad13049a"
+
+"@ngrx/store@^2.0.0":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-2.2.1.tgz#316ec1e43aa5a0166e5e6e1aa2c34a4049386510"
+
 "@ngtools/webpack@latest":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.1.0.tgz#89d8d5b7614babb0015992ec7123dceb2e189357"

@@ -9,6 +9,10 @@ import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
 
+import { bars } from './voteReducer';
+
+import { StoreModule } from '@ngrx/store';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { routing }  from './app-routing.module';
     FormsModule,
     HttpModule,
     routing,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    StoreModule.provideStore(bars)
   ],
   providers: [],
   bootstrap: [AppComponent]
