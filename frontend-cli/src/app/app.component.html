@@ -1,10 +1,8 @@
 
 
-<md-toolbar color="primary">
+<md-toolbar color="primary" (click)="goHome()">
   <span>
-    <a [routerLink]="['/home']">
-      Democratizer
-    </a>
+      Democratizer    
   </span>
 </md-toolbar>
 <router-outlet></router-outlet>
