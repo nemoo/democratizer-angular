@@ -6,6 +6,12 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 Run `yarn` to install
 
+Run `npm install -g angular-cli` to install angular-cli
+
+Time travel debugging: [ngrx-devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+Angular2 Chrome dev tool: [Augury](https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd)
+
 ## Development server
 Run `yarn run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
