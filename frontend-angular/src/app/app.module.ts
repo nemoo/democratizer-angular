@@ -9,8 +9,6 @@ import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
 
-import { bars } from './voteReducer';
-
 import { StoreModule } from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
@@ -26,12 +24,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     FormsModule,
     HttpModule,
     routing,
-    MaterialModule.forRoot(),
-    StoreModule.provideStore(bars),
-    StoreDevtoolsModule.instrumentStore({
-      maxAge: 50,
-      monitor: bars
-    })
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

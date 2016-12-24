@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {DbService} from '../../db.service';
 import {BaselineBar, Bar} from '../../baselineBar';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import {MdSnackBar} from '@angular/material';
 
 
 @Component({
@@ -18,18 +18,11 @@ export class MainComponent implements OnInit {
   constructor(
     private dbService: DbService, 
     private route: ActivatedRoute,
-    private _store: Store<any>
-  ) { 
-    _store.distinctUntilChanged()
-      .subscribe(bars => {
-          this.bars = bars;
-          this.modifiedRevenue = bars.map(b => b.delta)
-            .reduce((a,b) => a + b, 0);
-      });
-  }
+    public snackBar: MdSnackBar
+  ) { }
 
   baselineBar: BaselineBar;
-  bars: Observable<Bar[]>;
+  bars: Bar[];
   originalRevenue: number;
   modifiedRevenue: number;
 
@@ -44,7 +37,7 @@ export class MainComponent implements OnInit {
                   .subscribe(
                     baselineBar => {
                       this.baselineBar = baselineBar;
-                      this._store.dispatch({type: "INIT", payload: baselineBar.bars})
+                      this.bars = baselineBar.bars;
                       this.originalRevenue =
                         baselineBar.bars.reduce((a,b) => {
                                                 return a + (b.basevalue);
@@ -58,22 +51,25 @@ export class MainComponent implements OnInit {
     return bar.delta  / 1000;
   }
 
-  increaseBar(bar: Bar){     
-    this._store.dispatch({type: "INCREASE_BAR", payload: bar.basevalueId});
-  }
+  increaseBar(bar: Bar){     this.changeAmount( bar, 5000)  }
+  decreaseBar(bar: Bar){     this.changeAmount( bar,-5000)  }
 
-  decreaseBar(bar: Bar){     
-
-    this._store.dispatch({type: "DECREASE_BAR", payload: bar.basevalueId});
+  changeAmount( bar: Bar, amount: number) {
+      this.bars = this.bars.map( b => {
+        if (b === bar) {
+          return Object.assign({},b,{delta: bar.delta + amount})
+        }
+        return b;
+      });   
   }
 
   save(){
     const data = Object.assign({},this.baselineBar, {bars: this.bars});
     this.dbService.saveBaseline(data)    
                   .subscribe(
-                    baselineBar => console.log("saved"),
+                    baselineBar => this.snackBar.open("Saved!", "OK", {duration: 2000}),
                     error => this.errorMessage = <any>error
-                  );    
+                  );                      
   }
 
 

@@ -15,6 +15,11 @@ Angular2 Chrome dev tool: [Augury](https://chrome.google.com/webstore/detail/aug
 ## Development server
 Run `yarn run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Upgrading
+* Install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
+* Run `ncu` to see which dependencies can be upgraded.
+* Run `ncu -u` to upgrade your package.json to the latest versions.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
