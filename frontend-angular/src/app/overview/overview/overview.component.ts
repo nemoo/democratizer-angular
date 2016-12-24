@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {Baseline} from '../../baseline';
-import {DbService} from '../../db.service';
+import {Baseline} from '../../model/baseline';
+import {BackendService} from '../../service/backend.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'overview',
-  providers: [DbService],
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+  providers: [BackendService],
+  templateUrl: './overview.component.html'
 })
 export class OverviewComponent implements OnInit {
   errorMessage: string;
 
-  constructor(private dbService: DbService,private router: Router) { }
+  constructor(private dbService: BackendService,private router: Router) { }
 
   ngOnInit() {
     this.getBaselines();

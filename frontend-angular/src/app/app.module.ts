@@ -9,10 +9,6 @@ import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
 
-import { StoreModule } from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-
-
 @NgModule({
   declarations: [
     AppComponent,

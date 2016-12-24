@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DbService} from '../../db.service';
-import {BaselineBar, Bar} from '../../baselineBar';
+import {BackendService} from '../../service/backend.service';
+import {BaselineBar, Bar} from '../../model/baselineBar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {MdSnackBar} from '@angular/material';
@@ -8,15 +8,14 @@ import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'voteview',
-  providers: [DbService],
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  providers: [BackendService],
+  templateUrl: './main.component.html'
 })
 export class MainComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private dbService: DbService, 
+    private backendService: BackendService, 
     private route: ActivatedRoute,
     public snackBar: MdSnackBar
   ) { }
@@ -33,7 +32,7 @@ export class MainComponent implements OnInit {
   }
 
   getBaselineBars(id: number) {
-    this.dbService.getVoteview(id)
+    this.backendService.getVoteview(id)
                   .subscribe(
                     baselineBar => {
                       this.baselineBar = baselineBar;
@@ -65,7 +64,7 @@ export class MainComponent implements OnInit {
 
   save(){
     const data = Object.assign({},this.baselineBar, {bars: this.bars});
-    this.dbService.saveBaseline(data)    
+    this.backendService.saveBaseline(data)    
                   .subscribe(
                     baselineBar => this.snackBar.open("Saved!", "OK", {duration: 2000}),
                     error => this.errorMessage = <any>error
