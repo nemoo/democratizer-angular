@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { routing }  from './app-routing.module';
     FormsModule,
     HttpModule,
     routing,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
