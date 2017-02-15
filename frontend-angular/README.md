@@ -13,7 +13,9 @@ Time travel debugging: [ngrx-devtools](https://chrome.google.com/webstore/detail
 Angular2 Chrome dev tool: [Augury](https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd)
 
 ## Development server
-Run `yarn run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Run `yarn run start` for a dev server.
+* Or run `npm start` for a dev server.
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Upgrading
 * Install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)

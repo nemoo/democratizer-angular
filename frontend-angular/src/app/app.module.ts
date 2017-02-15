@@ -22,7 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpModule,
     routing,
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
