@@ -4,6 +4,8 @@ Experimental repository to get to know angular2.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
 
+Install yarn via [chocolatey](https://chocolatey.org/) with `choco install yarn`
+
 Run `yarn` to install
 
 Run `npm install -g angular-cli` to install angular-cli
