@@ -13,7 +13,3 @@ $theme: mat-light-theme($primary, $accent, $warn);
 mat-toolbar.mat-primary {
     color: rgb(255,255,255);
 }
-
-[mat-raised-button].mat-primary, [mat-fab].mat-primary, [mat-mini-fab].mat-primary {
-    color: rgba(255,255,255, 0.87);
-}
