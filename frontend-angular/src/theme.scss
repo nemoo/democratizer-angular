@@ -2,18 +2,18 @@
 
 /* see material color codes:  https://material.io/guidelines/style/color.html#color-color-palette  */
 @import '~@angular/material/core/theming/all-theme';
-@include md-core();
-$primary: md-palette($md-cyan, 400);
-$accent:  md-palette($md-light-blue, 600, A100, A400);
-$warn:    md-palette($md-red, 600);
-$theme: md-light-theme($primary, $accent, $warn);
+@include mat-core();
+$primary: mat-palette($mat-cyan, 400);
+$accent:  mat-palette($mat-light-blue, 600, A100, A400);
+$warn:    mat-palette($mat-red, 600);
+$theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
 
 
-md-toolbar.md-primary {
+mat-toolbar.mat-primary {
     color: rgb(255,255,255);
 }
 
-[md-raised-button].md-primary, [md-fab].md-primary, [md-mini-fab].md-primary {
+[mat-raised-button].mat-primary, [mat-fab].mat-primary, [mat-mini-fab].mat-primary {
     color: rgba(255,255,255, 0.87);
 }
