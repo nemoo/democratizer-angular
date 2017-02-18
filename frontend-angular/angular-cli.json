@@ -14,10 +14,10 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "mobile": false,
-      "styles": [
-        "theme.scss"
-      ],
       "scripts": [],
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

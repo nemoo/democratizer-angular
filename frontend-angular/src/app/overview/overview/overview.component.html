@@ -1,9 +1,9 @@
-<md-card *ngFor="let baseline of baselines">
-      <md-card-title>{{baseline.name}}</md-card-title>
+<div *ngFor="let baseline of baselines">
+      <h1>{{baseline.name}}</h1>
 
-      <md-card-actions>
-        <button md-raised-button color="primary" (click)="selectBaseline(baseline)">
+      <p>
+        <button class="btn btn-primary" (click)="selectBaseline(baseline)">
           DEMOCRATIZE NOW!
         </button>
-      </md-card-actions>
-</md-card>
+      </p>
+</div>

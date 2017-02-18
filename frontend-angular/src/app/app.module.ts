@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
@@ -21,8 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     HttpModule,
     routing,
-    MaterialModule.forRoot(),
-    FlexLayoutModule
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

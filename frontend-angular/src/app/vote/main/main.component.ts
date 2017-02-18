@@ -3,7 +3,7 @@ import {BackendService} from '../../service/backend.service';
 import {BaselineBar, Bar} from '../../model/baselineBar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {MdSnackBar} from '@angular/material';
+
 
 
 @Component({
@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   constructor(
     private backendService: BackendService, 
     private route: ActivatedRoute,
-    public snackBar: MdSnackBar
+    //public snackBar: MdSnackBar
   ) { }
 
   baselineBar: BaselineBar;
@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
     const data = Object.assign({},this.baselineBar, {bars: this.bars});
     this.backendService.saveBaseline(data)    
                   .subscribe(
-                    baselineBar => this.snackBar.open("Saved!", "OK", {duration: 2000}),
+                    //baselineBar => this.snackBar.open("Saved!", "OK", {duration: 2000}),
                     error => this.errorMessage = <any>error
                   );                      
   }

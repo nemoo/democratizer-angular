@@ -1,31 +1,31 @@
 
 
-<md-card>
-  <md-card-title>{{ (baselineBar)?.name }}</md-card-title>
+<div>
+  <h1>{{ (baselineBar)?.name }}</h1>
   <p>
   Verfügbares Budget: {{originalRevenue}} Mio. Euro
   </p>
   <p>
   Ihr Vorschlag zu den Staatsausgaben: {{modifiedRevenue}} Mio. Euro
   </p>
-  <button md-raised-button color="primary" (click)="save()">
+  <button class="btn btn-primary" (click)="save()">
     VARIANTE SPEICHERN
   </button>
-</md-card>
+</div>
 
 
-<md-card fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-around">
-    <div fxFlex="500px" *ngFor="let bar of bars">
+<div >
+    <div *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
-      <md-progress-bar mode="determinate" value="{{bar.basevalue / 1000}}"></md-progress-bar>
+      <p><ngb-progressbar type="success" value="{{bar.basevalue / 1000}}"></ngb-progressbar></p>      
       <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
-      <md-progress-bar mode="determinate" value="{{myProposalPercentage(bar)}}"></md-progress-bar>       
+      <p><ngb-progressbar type="success" value="{{myProposalPercentage(bar)}}"></ngb-progressbar></p>
       <br>
-      <button md-raised-button (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
-      <button md-raised-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
+      <button class="btn btn-primary" (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
+      <button class="btn btn-primary" (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
       
       <br>
       <br>
       <br>
     </div>
-</md-card>
+</div>
