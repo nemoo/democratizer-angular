@@ -13,3 +13,11 @@ $theme: mat-light-theme($primary, $accent, $warn);
 mat-toolbar.mat-primary {
     color: rgb(255,255,255);
 }
+
+body {
+    background: #f1f1f1;
+}
+
+md-card.bar {
+    margin: 5px;
+}

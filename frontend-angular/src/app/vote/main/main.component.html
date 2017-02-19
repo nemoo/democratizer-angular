@@ -14,8 +14,8 @@
 </md-card>
 
 
-<md-card fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-around">
-    <div fxFlex="500px" *ngFor="let bar of bars">
+<div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-around">
+    <md-card class="bar" fxFlex="500px" *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
       <md-progress-bar mode="determinate" value="{{bar.basevalue / 1000}}"></md-progress-bar>
       <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
@@ -27,5 +27,5 @@
       <br>
       <br>
       <br>
-    </div>
-</md-card>
+    </md-card>
+</div>
