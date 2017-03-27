@@ -1,0 +1,14 @@
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+
+$body-bg:    $gray-lighter;
+
+$btn-primary-bg:       $yellow;
+$btn-primary-border:   $yellow;
+
+//$enable-gradients: true;
+//$enable-shadows: true;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
