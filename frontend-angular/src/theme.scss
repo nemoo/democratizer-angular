@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* see material color codes:  https://material.io/guidelines/style/color.html#color-color-palette  */
-@import '~@angular/material/core/theming/all-theme';
+@import '~@angular/material/_theming';
+
 @include mat-core();
 $primary: mat-palette($mat-cyan, 400);
 $accent:  mat-palette($mat-light-blue, 600, A100, A400);

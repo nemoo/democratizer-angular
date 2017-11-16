@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview/overview.component';
 import { MainComponent } from './vote/main/main.component';
 import { routing }  from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 @NgModule({
   declarations: [
@@ -19,10 +23,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClient,
     routing,
-    MaterialModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

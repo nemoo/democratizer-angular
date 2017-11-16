@@ -1,8 +1,7 @@
 # democratizer in angular2
 
-Experimental repository to get to know angular2.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli). 
 
 Install yarn via [chocolatey](https://chocolatey.org/) with `choco install yarn`
 
@@ -23,6 +22,7 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 * Install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
 * Run `ncu` to see which dependencies can be upgraded.
 * Run `ncu -u` to upgrade your package.json to the latest versions.
+* Run `yarn upgrade-interactive` to see which packages can be upgraded and trigger the upgrade
 
 ## Code scaffolding
 

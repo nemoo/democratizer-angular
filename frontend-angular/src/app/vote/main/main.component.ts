@@ -3,7 +3,7 @@ import {BackendService} from '../../service/backend.service';
 import {BaselineBar, Bar} from '../../model/baselineBar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {MdSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -15,9 +15,9 @@ export class MainComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private backendService: BackendService, 
+    private backendService: BackendService,
     private route: ActivatedRoute,
-    public snackBar: MdSnackBar
+    public snackBar: MatSnackBar
   ) { }
 
   baselineBar: BaselineBar;
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
                     error => this.errorMessage = <any>error
                   );
   }
-  
+
   myProposalPercentage(bar: Bar): number {
     return bar.delta  / 1000;
   }
@@ -59,16 +59,16 @@ export class MainComponent implements OnInit {
           return Object.assign({},b,{delta: bar.delta + amount})
         }
         return b;
-      });   
+      });
   }
 
   save(){
     const data = Object.assign({},this.baselineBar, {bars: this.bars});
-    this.backendService.saveBaseline(data)    
+    this.backendService.saveBaseline(data)
                   .subscribe(
                     baselineBar => this.snackBar.open("Saved!", "OK", {duration: 2000}),
                     error => this.errorMessage = <any>error
-                  );                      
+                  );
   }
 
 
