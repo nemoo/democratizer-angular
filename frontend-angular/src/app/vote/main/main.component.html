@@ -1,31 +1,31 @@
 
 
-<md-card>
-  <md-card-title>{{ (baselineBar)?.name }}</md-card-title>
+<mat-card>
+  <mat-card-title>{{ (baselineBar)?.name }}</mat-card-title>
   <p>
   Verfügbares Budget: {{originalRevenue}} Mio. Euro
   </p>
   <p>
   Ihr Vorschlag zu den Staatsausgaben: {{modifiedRevenue}} Mio. Euro
   </p>
-  <button md-raised-button color="primary" (click)="save()">
+  <button mat-raised-button color="primary" (click)="save()">
     VARIANTE SPEICHERN
   </button>
-</md-card>
+</mat-card>
 
 
 <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-around">
-    <md-card class="bar" fxFlex="500px" *ngFor="let bar of bars">
+    <mat-card class="bar" fxFlex="500px" *ngFor="let bar of bars">
       {{bar.category}} - {{bar.basevalue}} Mio. Euro
-      <md-progress-bar mode="determinate" value="{{bar.basevalue / 1000}}"></md-progress-bar>
+      <mat-progress-bar mode="determinate" value="{{bar.basevalue / 1000}}"></mat-progress-bar>
       <p>Mein Vorschlag: {{bar.delta}} Mio. Euro</p>
-      <md-progress-bar mode="determinate" value="{{myProposalPercentage(bar)}}"></md-progress-bar>       
+      <mat-progress-bar mode="determinate" value="{{myProposalPercentage(bar)}}"></mat-progress-bar>
       <br>
-      <button md-raised-button (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
-      <button md-raised-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
-      
+      <button mat-raised-button (click)="decreaseBar(bar)">MINUS 5 MILLIARDEN</button>
+      <button mat-raised-button (click)="increaseBar(bar)">PLUS 5 MILLIARDEN</button>
+
       <br>
       <br>
       <br>
-    </md-card>
+    </mat-card>
 </div>

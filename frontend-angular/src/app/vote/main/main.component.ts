@@ -3,7 +3,7 @@ import {BackendService} from '../../service/backend.service';
 import {BaselineBar, Bar} from '../../model/baselineBar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({

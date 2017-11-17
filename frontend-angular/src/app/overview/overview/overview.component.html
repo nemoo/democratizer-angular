@@ -1,9 +1,9 @@
-<md-card *ngFor="let baseline of baselines">
-      <md-card-title>{{baseline.name}}</md-card-title>
+<mat-card *ngFor="let baseline of baselines">
 
-      <md-card-actions>
-        <button md-raised-button color="primary" (click)="selectBaseline(baseline)">
-          DEMOCRATIZE NOW!
-        </button>
-      </md-card-actions>
-</md-card>
+  <mat-card-title>{{baseline.name}}</mat-card-title>
+
+  <button mat-raised-button color="primary" (click)="selectBaseline(baseline)">
+    DEMOCRATIZE NOW
+  </button>
+
+</mat-card>
